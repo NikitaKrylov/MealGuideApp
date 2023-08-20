@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<style name="WishListCheckbox" parent="Base.Theme.RecipeGuideApp">
+    <item name="colorAccent">#F85757</item>
+    <item name="colorSecondary">#fff</item>
+</style>
+
 </resources>

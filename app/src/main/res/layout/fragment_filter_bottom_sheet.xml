@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.FilterBottomSheetFragment"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Filter"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/filter_button_background"
+        android:text="Apply filter"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/filter_button_background"
+        android:backgroundTint="#FFFFFF"
+        android:text="Clear filter"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton"
+        tools:layout_editor_absoluteX="30dp"
+        android:textColor="@color/design_default_color_secondary_variant"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

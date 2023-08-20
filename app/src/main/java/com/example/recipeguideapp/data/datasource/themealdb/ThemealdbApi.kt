@@ -1,5 +1,6 @@
 package com.example.recipeguideapp.data.datasource.themealdb
 
+import com.example.recipeguideapp.data.datasource.themealdb.models.Areas
 import com.example.recipeguideapp.data.datasource.themealdb.models.Categories
 import com.example.recipeguideapp.data.datasource.themealdb.models.CategoriesDetail
 import com.example.recipeguideapp.data.datasource.themealdb.models.MealsDetail
@@ -14,17 +15,23 @@ interface ThemealdbApi {
     suspend fun getRecipesByMealName(@Query("s") name: String): Response<Meals>
 
     @GET("lookup.php")
-    suspend fun getMealDetailById(@Query("i") id: Int): Call<Meals>
+    suspend fun getMealDetailById(@Query("i") id: Int): Response<Meals>
 
     @GET("random.php")
-    suspend fun getRandomRecipe(): Call<Meals>
+    suspend fun getRandomRecipe(): Response<Meals>
 
     @GET("categories.php")
-    suspend fun getAllCategoriesDetail(): Call<CategoriesDetail>
+    suspend fun getAllCategoriesDetail(): Response<CategoriesDetail>
 
     @GET("list.php?c=list")
-    suspend fun getAllCategories(): Call<Categories>
+    suspend fun getAllCategories(): Response<Categories>
+
+    @GET("list.php?a=list")
+    suspend fun getAllAreas(): Response<Areas>
 
     @GET("filter.php")
-    suspend fun filterByCategoryName(@Query("c") categoryName: String): Call<MealsDetail>
+    suspend fun filterByCategory(@Query("c") categoryName: String): Response<Meals>
+
+    @GET("filter.php")
+    suspend fun filterByArea(@Query("a") areaName: String): Response<Meals>
 }

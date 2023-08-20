@@ -11,15 +11,12 @@ import com.example.recipeguideapp.ui.view.MealViewHolder
 
 class MealListAdapter(
     mealDiffCalculator: MealItemDiffCalculator,
+    private val onCardAction: (id: Int) -> Unit,
+    private val onCheckBoxAction: (id: Int, isChecked: Boolean) -> Unit
 ) : ListAdapter<MealData, MealViewHolder>(mealDiffCalculator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
-        return MealViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)), parent.context, {
-            Toast.makeText(parent.context, it.toString(), Toast.LENGTH_SHORT).show()
-        }, {id, isChecked ->
-            Toast.makeText(parent.context, isChecked.toString(), Toast.LENGTH_SHORT).show()
-        })
+        return MealViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)), parent.context, onCardAction, onCheckBoxAction)
     }
-
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.bind(getItem(position))

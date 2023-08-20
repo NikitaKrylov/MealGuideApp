@@ -12,6 +12,9 @@ import com.example.recipeguideapp.R
 import com.example.recipeguideapp.components.MealListFragmentComponent
 import com.example.recipeguideapp.databinding.FragmentListMealBinding
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.recipeguideapp.components.MealListController
 
 
@@ -30,13 +33,12 @@ class ListMealFragment : Fragment(R.layout.fragment_list_meal){
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListMealBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentComponent = MealListFragmentComponent(binding)
+        fragmentComponent = MealListFragmentComponent(binding, this::showMealDetails, viewModel::likeMealCard)
         mealListController = MealListController(binding, viewModel, fragmentComponent.adapter, viewLifecycleOwner)
         mealListController.setUpMeals()
 
@@ -54,6 +56,10 @@ class ListMealFragment : Fragment(R.layout.fragment_list_meal){
             FilterBottomSheetFragment().show(childFragmentManager, null)
         }
 
-
     }
+
+    private fun showMealDetails(id: Int){
+        Navigation.findNavController(binding.root).navigate(R.id.action_listMealFragment_to_mealDetailFragment)
+    }
+
 }

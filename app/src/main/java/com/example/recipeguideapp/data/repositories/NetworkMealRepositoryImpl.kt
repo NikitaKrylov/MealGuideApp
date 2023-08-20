@@ -4,10 +4,9 @@ import com.example.recipeguideapp.data.datasource.themealdb.ThemealdbApi
 import com.example.recipeguideapp.data.datasource.themealdb.models.Meals
 import com.example.recipeguideapp.data.models.CategoryData
 import com.example.recipeguideapp.data.models.MealData
-import retrofit2.Call
 import retrofit2.Response
 
-class MealRepositoryImpl(private val dataSource: ThemealdbApi): MealRepository {
+class NetworkMealRepositoryImpl(private val dataSource: ThemealdbApi): NetworkMealRepository {
 
     override suspend fun getMealsByName(name: String): Response<Meals> = dataSource.getRecipesByMealName(name)
 

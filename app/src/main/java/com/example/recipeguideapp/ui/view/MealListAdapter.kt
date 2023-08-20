@@ -1,6 +1,8 @@
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.ListAdapter
+import com.example.recipeguideapp.MealViewModel
 import com.example.recipeguideapp.R
 import com.example.recipeguideapp.data.models.MealData
 import com.example.recipeguideapp.databinding.MealItemBinding
@@ -11,7 +13,11 @@ class MealListAdapter(
     mealDiffCalculator: MealItemDiffCalculator,
 ) : ListAdapter<MealData, MealViewHolder>(mealDiffCalculator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
-        return MealViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)), parent.context)
+        return MealViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)), parent.context, {
+            Toast.makeText(parent.context, it.toString(), Toast.LENGTH_SHORT).show()
+        }, {id, isChecked ->
+            Toast.makeText(parent.context, isChecked.toString(), Toast.LENGTH_SHORT).show()
+        })
     }
 
 

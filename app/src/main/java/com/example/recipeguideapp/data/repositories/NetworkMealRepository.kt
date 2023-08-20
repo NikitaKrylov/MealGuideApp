@@ -5,7 +5,7 @@ import com.example.recipeguideapp.data.models.CategoryData
 import com.example.recipeguideapp.data.models.MealData
 import retrofit2.Response
 
-interface MealRepository {
+interface NetworkMealRepository {
     suspend fun getMealsByName(name: String): Response<Meals>
     suspend fun getAllCategories(): List<CategoryData>
     suspend fun getMealById(id: Int): MealData?

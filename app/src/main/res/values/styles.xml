@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<style name="WishListCheckbox" parent="Base.Theme.RecipeGuideApp">
-    <item name="colorAccent">#F85757</item>
-    <item name="colorSecondary">#fff</item>
-</style>
+    <style name="WishListCheckbox" parent="Base.Theme.RecipeGuideApp">
+        <item name="colorAccent">#F85757</item>
+        <item name="colorSecondary">#fff</item>
+    </style>
+    
+    <style name="ToolbarTitleText" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 
 </resources>

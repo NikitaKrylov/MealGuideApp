@@ -15,7 +15,7 @@ interface ThemealdbApi {
     suspend fun getRecipesByMealName(@Query("s") name: String): Response<Meals>
 
     @GET("lookup.php")
-    suspend fun getMealDetailById(@Query("i") id: Int): Response<Meals>
+    suspend fun getMealDetailById(@Query("i") id: Int): Response<MealsDetail>
 
     @GET("random.php")
     suspend fun getRandomRecipe(): Response<Meals>

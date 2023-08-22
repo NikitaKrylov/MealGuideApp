@@ -1,13 +1,9 @@
-package com.example.recipeguideapp.ui.view
+package com.example.recipeguideapp.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatRadioButton
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recipeguideapp.data.datasource.themealdb.models.Category
 import com.example.recipeguideapp.databinding.FilterItemBinding
 
 class BottomSheetFilterAdapter(diffCalc: FilterItemDiffCalculator) : ListAdapter<String, BottomSheetFilterAdapter.BottomSheetFilterViewHolder>(diffCalc) {

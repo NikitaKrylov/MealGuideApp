@@ -1,25 +1,21 @@
 package com.example.recipeguideapp.data.datasource.themealdb.models
 
-import com.example.recipeguideapp.data.models.CategoryData
-import com.example.recipeguideapp.data.models.MealData
+import com.google.gson.annotations.SerializedName
 
 data class MealDetail(
-    val idMeal: Int,
-    val strMeal: String,
-    val strCategory: String,
-    val strInstructions: String,
-    val strMealThumb: String,
-    val strTags: String,
-    val strYoutube: String?
+    @SerializedName("idMeal")
+    val id: Int,
+    @SerializedName("strMeal")
+    val name: String,
+    @SerializedName("strCategory")
+    val category: String,
+    @SerializedName("strInstructions")
+    val instructions: String,
+    @SerializedName("strMealThumb")
+    val thumbUrl: String,
+    @SerializedName("tags")
+    val tags: String?,
+    @SerializedName("strYoutube")
+    val youtubeUrl: String?
 
-){
-    fun transformToMealData() = MealData(
-        idMeal,
-        strMeal,
-        CategoryData(strCategory),
-        strInstructions,
-        strMealThumb,
-        strTags,
-        strYoutube
-    )
-}
+)

@@ -1,5 +1,8 @@
 package com.example.recipeguideapp.data.datasource.themealdb.models
 
+import com.google.gson.annotations.SerializedName
+
 data class CategoriesDetail(
-    val categories: List<CategoryDetail>
+    @SerializedName("categories")
+    val values: List<CategoryDetail>
 )

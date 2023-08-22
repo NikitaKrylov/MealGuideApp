@@ -1,19 +1,18 @@
+package com.example.recipeguideapp.ui.view.adapter
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.ListAdapter
-import com.example.recipeguideapp.MealViewModel
-import com.example.recipeguideapp.R
+import com.example.recipeguideapp.data.datasource.themealdb.models.Meal
+import com.example.recipeguideapp.data.datasource.themealdb.models.MealDetail
 import com.example.recipeguideapp.data.models.MealData
 import com.example.recipeguideapp.databinding.MealItemBinding
-import com.example.recipeguideapp.ui.view.MealItemDiffCalculator
-import com.example.recipeguideapp.ui.view.MealViewHolder
 
 class MealListAdapter(
     mealDiffCalculator: MealItemDiffCalculator,
     private val onCardAction: (id: Int) -> Unit,
     private val onCheckBoxAction: (id: Int, isChecked: Boolean) -> Unit
-) : ListAdapter<MealData, MealViewHolder>(mealDiffCalculator) {
+) : ListAdapter<Meal, MealViewHolder>(mealDiffCalculator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
         return MealViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context)), parent.context, onCardAction, onCheckBoxAction)
     }

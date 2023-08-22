@@ -29,8 +29,8 @@ class FilterBottomSheetController(
         viewModel.loadAreasIfNotInCache()
 
         viewModel.categories.observe(viewLifecycleOwner) { state ->
-            if (state.status == State.Companion.Status.SUCCESS && state.data?.meals != null){
-                component.categoryAdapter.submitList(state.data.meals.map { it.name })
+            if (state.status == State.Companion.Status.SUCCESS && state.data?.values != null){
+                component.categoryAdapter.submitList(state.data.values.map { it.name })
             }
         }
     }

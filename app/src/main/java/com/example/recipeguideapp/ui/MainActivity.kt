@@ -1,4 +1,4 @@
-package com.example.recipeguideapp.ui.view
+package com.example.recipeguideapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

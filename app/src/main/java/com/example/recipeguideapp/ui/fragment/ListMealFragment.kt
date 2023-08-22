@@ -1,4 +1,4 @@
-package com.example.recipeguideapp.ui.view
+package com.example.recipeguideapp.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,8 +13,6 @@ import com.example.recipeguideapp.components.MealListFragmentComponent
 import com.example.recipeguideapp.databinding.FragmentListMealBinding
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.example.recipeguideapp.components.MealListController
 
 
@@ -59,7 +57,9 @@ class ListMealFragment : Fragment(R.layout.fragment_list_meal){
     }
 
     private fun showMealDetails(id: Int){
-        Navigation.findNavController(binding.root).navigate(R.id.action_listMealFragment_to_mealDetailFragment)
+        Navigation.findNavController(binding.root).navigate(
+            ListMealFragmentDirections.actionListMealFragmentToMealDetailFragment(id)
+        )
     }
 
 }

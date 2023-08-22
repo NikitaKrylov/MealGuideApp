@@ -1,12 +1,5 @@
 package com.example.recipeguideapp
 
-import com.example.recipeguideapp.data.RetrofitServiceFactory
-import com.example.recipeguideapp.data.datasource.themealdb.ThemealdbApi
-import com.example.recipeguideapp.data.datasource.themealdb.models.MealDetail
-import com.example.recipeguideapp.data.datasource.themealdb.models.Meals
-import org.junit.Assert.*
-import org.junit.Test
-
 
 class RecipeApiUnitTest {
 

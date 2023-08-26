@@ -14,13 +14,13 @@ import com.squareup.picasso.Picasso
 class MealViewHolder(
     private val binding: MealItemBinding,
     private val context: Context,
-    private val onCardAction: (id: Int) -> Unit,
+    private val onCardAction: (id: Int, sharedView: View) -> Unit,
     private val onCheckBoxAction: (id: Int, isChecked: Boolean) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: Meal){
         binding.cardItemTitle.text = data.name
         binding.cardView.setOnClickListener {
-            onCardAction(data.id.toInt())
+            onCardAction(data.id.toInt(), binding.cardItemThumb)
         }
         binding.cardCheckBox.setOnCheckedChangeListener { _, isChecked ->
             onCheckBoxAction(data.id.toInt(), isChecked)

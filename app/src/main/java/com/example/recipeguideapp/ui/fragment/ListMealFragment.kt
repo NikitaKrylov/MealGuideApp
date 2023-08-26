@@ -1,6 +1,7 @@
 package com.example.recipeguideapp.ui.fragment
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,11 @@ import com.example.recipeguideapp.R
 import com.example.recipeguideapp.components.MealListFragmentComponent
 import com.example.recipeguideapp.databinding.FragmentListMealBinding
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.core.view.doOnPreDraw
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.example.recipeguideapp.components.MealListController
+import com.example.recipeguideapp.ui.MainActivity
 
 
 class ListMealFragment : Fragment(R.layout.fragment_list_meal){
@@ -36,8 +40,9 @@ class ListMealFragment : Fragment(R.layout.fragment_list_meal){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentComponent = MealListFragmentComponent(binding, this::showMealDetails, viewModel::likeMealCard)
-        mealListController = MealListController(binding, viewModel, fragmentComponent.adapter, viewLifecycleOwner)
+        fragmentComponent = MealListFragmentComponent(this::showMealDetails, viewModel::likeMealCard)
+        mealListController = MealListController(binding, viewModel, fragmentComponent, viewLifecycleOwner)
+        (requireActivity() as MainActivity).setTitle("Search")
         mealListController.setUpMeals()
 
         binding.searchInput.setOnQueryTextListener(object : OnQueryTextListener {
@@ -56,9 +61,9 @@ class ListMealFragment : Fragment(R.layout.fragment_list_meal){
 
     }
 
-    private fun showMealDetails(id: Int){
+    private fun showMealDetails(id: Int, sharedView: View){
         Navigation.findNavController(binding.root).navigate(
-            ListMealFragmentDirections.actionListMealFragmentToMealDetailFragment(id)
+            ListMealFragmentDirections.actionListMealFragmentToMealDetailFragment(id),
         )
     }
 

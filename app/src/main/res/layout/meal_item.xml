@@ -46,6 +46,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/cardItemThumb"
+                    android:transitionName="imageSmall"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/rounded_card_image"
@@ -62,8 +63,7 @@
                 android:id="@+id/cardItemTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                style="@style/SecondaryTitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintEnd_toStartOf="parent"

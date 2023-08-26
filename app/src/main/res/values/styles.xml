@@ -11,4 +11,29 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="BaseText">
+        <item name="color">#3E5481</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextNormal" parent="BaseText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="LightTextNormal" parent="TextNormal">
+        <item name="color">#9FA5C0</item>
+    </style>
+
+    <style name="PrimaryTitle" parent="BaseText">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SecondaryTitle" parent="PrimaryTitle">
+        <item name="android:textSize">23sp</item>
+    </style>
+
+
+
 </resources>
